@@ -1,0 +1,25 @@
+{
+    "appKeys": {
+        "dummy": 0
+    },
+    "capabilities": [
+        "configurable"
+    ],
+    "companyName": "mjmberger",
+    "enableMultiJS": false,
+    "longName": "Football-Schiedsrichter",
+    "projectType": "native",
+    "resources": {
+        "media": []
+    },
+    "sdkVersion": "3",
+    "shortName": "fb_ref",
+    "targetPlatforms": [
+        "basalt"
+    ],
+    "uuid": "a491250e-7037-48b7-8fb4-69e023e35f3d",
+    "versionLabel": "1.2",
+    "watchapp": {
+        "watchface": false
+    }
+}
