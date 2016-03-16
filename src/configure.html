@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="width">
+<title>Configure</title>
+<style>
+ body 
+ {
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: smaller;
+  margin: 0;
+ }
+ 
+ header 
+ {
+  background: #CCCCCC;
+  height: 13em;
+  overflow: auto;
+ }
+ h1 {
+  color: #FFF;
+  font-size: 1.25em;
+  line-height: 1;
+  margin: 0 auto;
+  padding: 0.5em;
+  text-align: center;
+  text-shadow: 2px 2px 1px #6DF;
+ }
+ header p {
+  margin: 0 auto;
+  width: 90%;
+ }
+ menu {
+  margin: 0 auto;
+  padding: 0;
+  width: 90%;
+ }
+ menu li {
+  display: inline;
+  line-height: 2.25;
+  white-space: nowrap;
+ }
+ menu li a {
+  background-color: #FFF;
+  color: #000;
+  padding: 3px;
+  text-decoration: none;
+ }
+ menu li a:active, menu li a.selected {
+  background-color: #F93;
+  color: #FFF;
+ }
+ form {
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  position: absolute;
+  right: 0;
+  top: 14em;
+ }
+ #ref2, #ref3, #ref4 {
+  display: none;
+ }
+ fieldset {
+  background-color: #FFF;
+  font-size: larger;
+  margin: 0 auto;
+  width: 90%;
+ }
+ legend {
+  background-color:#CCCCCC;
+  color: #FFF;
+  padding: 1px 4px;
+ }
+ input {
+  text-align: right;
+  width: 10ex;
+ }
+ #ref4 input {
+  width: 10ex;
+ }
+ #ref2 input {
+  width: 10ex;
+ }
+ input[type=submit] {
+  border-radius: 4px;
+  font-weight: bold;
+  margin: 1em 0 0 0;
+  text-align: left;
+  width: auto;
+ }
+ label {
+  display: block;
+  font-size: smaller;
+  font-weight: bold;
+ }
+ p {
+  margin: 0;
+ }
+</style>
+</head>
+<body>
+<header>
+<h1>Count Down einstellen</h1>
+<p>Wähle einen Schiedsrichter aus</p>
+<p>Ändere die Countdown-Parameter</p>
+<p>Wähle die Vibrations-Zeiten aus</p>
+<menu>
+<li><a href="#ref1" id="ref1-link" onclick="showForm('ref1');" class="selected">Ref 1</a></li>
+<li><a href="#ref2" id="ref2-link" onclick="showForm('ref2');">Ref 2</a></li>
+<li><a href="#ref3" id="ref3-link" onclick="showForm('ref3');">Ref 3</a></li>
+<li><a href="#ref4" id="ref4-link" onclick="showForm('ref4');">Ref 4</a></li>
+</menu>
+</header>
+<form id="ref1" method="get" action="#" onsubmit="sendConfig(this); return false;">
+<fieldset>
+<legend>ref1</legend>
+<p><label>Count down Zeit (mm:ss):</label> <input pattern="[0-9]{1,2}:[0-9]{2}" name="time" value="15:00"></p>
+<p class="long"><label>Long vibes (mm:ss):</label>
+<span><input pattern="[0-9]{1,2}:[0-9]{2}" name="longvibes" value="0:00"></span> <button onclick="clone(this); return false;">+</button> <button onclick="destroy(this); return false;">−</button>
+<span><input value="0:00" pattern="[0-9]{1,2}:[0-9]{2}" name="longvibes"></span>
+</p>
+<p class="single"><label>Single vibes (mm:ss):</label>
+<span><input pattern="[0-9]{1,2}:[0-9]{2}" name="singlevibes"></span> <button onclick="clone(this); return false;">+</button> <button onclick="destroy(this); return false;">−</button>
+<span><input value="5:00" pattern="[0-9]{1,2}:[0-9]{2}" name="singlevibes"></span>
+</p>
+<p class="double"><label>Double vibes (mm:ss):</label>
+<span><input pattern="[0-9]{1,2}:[0-9]{2}" name="doublevibes"></span> <button onclick="clone(this); return false;">+</button> <button onclick="destroy(this); return false;">−</button>
+<span><input value="0:05" pattern="[0-9]{1,2}:[0-9]{2}" name="doublevibes"></span>
+</p>
+<input value="übernehmen" type="submit">
+</fieldset>
+</form>
+<form id="ref2" method="get" action="#" onsubmit="sendConfig(this); return false;">
+<fieldset>
+<legend>ref2</legend>
+<p><label>Count down Zeit (mm:ss):</label> <input pattern="[0-9]{1,2}:[0-9]{2}" name="time" value="15:00"></p>
+<p class="long"><label>Long vibes (mm:ss):</label>
+<span><input value="0:00" pattern="[0-9]{1,2}:[0-9]{2}" name="longvibes"></span>
+<button onclick="clone(this); return false;">+</button> <button onclick="destroy(this); return false;">−</button>
+</p>
+<p class="single"><label>Single vibes (mm:ss):</label>
+<span><input value="4:30" pattern="[0-9]{1,2}:[0-9]{2}" name="singlevibes"></span>
+<span><input value="3:30" pattern="[0-9]{1,2}:[0-9]{2}" name="singlevibes"></span>
+<span><input value="2:30" pattern="[0-9]{1,2}:[0-9]{2}" name="singlevibes"></span>
+<span><input value="1:30" pattern="[0-9]{1,2}:[0-9]{2}" name="singlevibes"></span>
+<button onclick="clone(this); return false;">+</button> <button onclick="destroy(this); return false;">−</button>
+</p>
+<p class="double"><label>Double vibes (mm:ss):</label>
+<span><input value="0:50" pattern="[0-9]{1,2}:[0-9]{2}" name="doublevibes"></span>
+<span><input value="0:40" pattern="[0-9]{1,2}:[0-9]{2}" name="doublevibes"></span>
+<span><input value="0:30" pattern="[0-9]{1,2}:[0-9]{2}" name="doublevibes"></span>
+<span><input value="0:25" pattern="[0-9]{1,2}:[0-9]{2}" name="doublevibes"></span>
+<span><input value="0:20" pattern="[0-9]{1,2}:[0-9]{2}" name="doublevibes"></span>
+<span><input value="0:15" pattern="[0-9]{1,2}:[0-9]{2}" name="doublevibes"></span>
+<span><input value="0:10" pattern="[0-9]{1,2}:[0-9]{2}" name="doublevibes"></span>
+<span><input value="0:05" pattern="[0-9]{1,2}:[0-9]{2}" name="doublevibes"></span>
+<button onclick="clone(this); return false;">+</button> <button onclick="destroy(this); return false;">−</button>
+</p>
+<input value="übernehmen" type="submit">
+</fieldset>
+</form>
+<form id="ref3" method="get" action="#" onsubmit="sendConfig(this); return false;">
+<fieldset>
+<legend>ref3</legend>
+<p><label>Count down Zeit (mm:ss):</label> <input pattern="[0-9]{1,2}:[0-9]{2}" name="time" value="15:00"></p>
+<p class="long"><label>Long vibes (mm:ss):</label>
+<span><input value="00:00" pattern="[0-9]{1,2}:[0-9]{2}" name="longvibes"></span>
+<button onclick="clone(this); return false;">+</button> <button onclick="destroy(this); return false;">−</button>
+</p>
+<p class="single"><label>Single vibes (mm:ss):</label>
+<span><input value="10:00" pattern="[0-9]{1,2}:[0-9]{2}" name="singlevibes"></span>
+<span><input value="05:00" pattern="[0-9]{1,2}:[0-9]{2}" name="singlevibes"></span>
+<button onclick="clone(this); return false;">+</button> <button onclick="destroy(this); return false;">−</button>
+</p>
+<p class="double"><label>Double vibes (mm:ss):</label>
+<span><input value="10:00" pattern="[0-9]{1,2}:[0-9]{2}" name="doublevibes"></span>
+<span><input value="05:00" pattern="[0-9]{1,2}:[0-9]{2}" name="doublevibes"></span>
+<button onclick="clone(this); return false;">+</button> <button onclick="destroy(this); return false;">−</button>
+</p>
+<input value="übernehmen" type="submit">
+</fieldset>
+</form>
+<form id="ref4" method="get" action="#" onsubmit="sendConfig(this); return false;">
+<fieldset>
+<legend>ref 4</legend>
+<p><label>Count down Zeit (ss):</label> <input pattern="[0-9]{2}" name="time" value="20"></p>
+<p class="long"><label>Long vibes (ss):</label>
+<span><input value="00" pattern="[0-9]{2}" name="longvibes"></span>
+<button onclick="clone(this); return false;">+</button> <button onclick="destroy(this); return false;">−</button>
+</p>
+<p class="single"><label>Single vibes (ss):</label>
+<span><input value="10" pattern="[0-9]{2}" name="singlevibes"></span>
+<span><input value="05" pattern="[0-9]{2}" name="singlevibes"></span>
+<button onclick="clone(this); return false;">+</button> <button onclick="destroy(this); return false;">−</button>
+</p>
+<p class="double"><label>Double vibes (ss):</label>
+<span><input value="04" pattern="[0-9]{2}" name="doublevibes"></span>
+<span><input value="03" pattern="[0-9]{2}" name="doublevibes"></span>
+<span><input value="02" pattern="[0-9]{2}" name="doublevibes"></span>
+<span><input value="01" pattern="[0-9]{2}" name="doublevibes"></span>
+<button onclick="clone(this); return false;">+</button> <button onclick="destroy(this); return false;">−</button>
+</p>
+<input value="übernehmen" type="submit">
+</fieldset>
+</form>
+<script>
+function sendConfig(f) {
+ var inputs = f.getElementsByTagName('input');
+ var time,long,single,double;
+ var conf = {'0': f['time'].value, '1': '', '2': '', '3': ''};
+ for (var i=0; i<inputs.length; i++) {
+  if (inputs[i].name == 'longvibes') {
+    conf['1'] += '|' + inputs[i].value;
+  }
+  if (inputs[i].name == 'singlevibes') {
+    conf['2'] += '|' + inputs[i].value;
+  }
+  if (inputs[i].name == 'doublevibes') {
+    conf['3'] += '|' + inputs[i].value;
+  }
+ }
+ // alert(JSON.stringify(conf));
+ location.href = 'pebblejs://close#' + JSON.stringify(conf);
+ return false;
+}
+function clone(button) {
+ // alert(button);
+ var parent = button.parentNode;
+ if (!parent) {
+  return false;
+ }
+ var obj = parent.getElementsByTagName('span')[0];
+ var copy = obj.cloneNode(true);
+ parent.insertBefore(copy, button);
+ // alert(copy.id);
+ return false;
+}
+function destroy(button) {
+ // alert(button);
+ var parent = button.parentNode;
+ if (!parent) {
+  return false;
+ }
+ var spans = parent.getElementsByTagName('span');
+ if (spans.length > 1) {
+  parent.removeChild(spans[spans.length-1]);
+ }
+ return false;
+}
+function showForm(id) {
+ var fs = document.getElementsByTagName('form');
+ for (var i=0; i<fs.length; i++) {
+  var l = document.getElementById(fs[i].id + '-link');
+  if (fs[i]['id'] != id) {
+   fs[i].style.display = 'none';
+   l.className = '';
+  }
+  else {   
+   fs[i].style.display = 'block';
+   l.className = 'selected';
+  }
+ }
+}
+</script>
+
+
+</body></html>
