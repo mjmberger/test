@@ -32,7 +32,7 @@ def build(ctx):
     ctx.path.make_node('src/js/').mkdir()
     js_paths = ctx.path.ant_glob(['src/*.js', 'src/**/*.js'])
     if js_paths:
-        ctx(rule='cat ${SRC} > ${TGT}', source=js_paths, target='pebble-js-app.js')
+        ctx(rule='cat ${SRC} > ${TGT}', source=js_paths, target='app.js')
         has_js = True
     else:
         has_js = False
