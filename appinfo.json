@@ -6,7 +6,7 @@
         "configurable"
     ],
     "companyName": "mjmberger",
-    "enableMultiJS": false,
+    "enableMultiJS": true,
     "longName": "Football-Schiedsrichter",
     "projectType": "native",
     "resources": {

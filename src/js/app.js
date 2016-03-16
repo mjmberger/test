@@ -84,7 +84,7 @@ Pebble.addEventListener("webviewclosed",
 Pebble.addEventListener("showConfiguration",
   function() 
   {
-    var uri = "https://github.com/mjmberger/fb/blob/master/configure.html";
+    var uri = "https://rawgit.com/mjmberger/test/master/src/configure.html";
     console.log("Configuration url: " + uri);
     Pebble.openURL(uri);
   }
