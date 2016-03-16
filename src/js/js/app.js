@@ -1,5 +1,6 @@
 var initialized = false;
 var messageQueue = [];
+var options;
 
 function sendNextMessage() 
 {
@@ -59,7 +60,7 @@ Pebble.addEventListener("ready",
 Pebble.addEventListener("webviewclosed",
   function(e) 
   {
-    var options = JSON.parse(decodeURIComponent(e.response));
+    options = JSON.parse(decodeURIComponent(e.response));
     console.log("Webview window returned: " + JSON.stringify(options));
     var time = options["0"].split(":");
     var hours = 0;
